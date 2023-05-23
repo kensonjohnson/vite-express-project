@@ -1,5 +1,5 @@
 import styles from "./App.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
 function App() {
@@ -24,16 +24,20 @@ function App() {
         setQuote(data);
       });
   }
+
+  useEffect(() => {
+    handleInspirationalQuote();
+  }, []);
   return (
-    <div
-      className={`d-flex flex-column gap-2 ${styles["main-container"]} ${
-        quote.author === "" ? "" : styles.active
-      }`}
-    >
+    <div className={`d-flex flex-column gap-2 ${styles["main-container"]}`}>
       <h3 className="text-center ">Which would you like?</h3>
       <div className="d-flex justify-content-between">
-        <Button onClick={handleInspirationalQuote}>Inspirational Quote</Button>
-        <Button onClick={handleFunnyQuote}>Funny Quote</Button>
+        <Button variant="secondary" onClick={handleInspirationalQuote}>
+          Inspirational Quote
+        </Button>
+        <Button variant="secondary" onClick={handleFunnyQuote}>
+          Funny Quote
+        </Button>
       </div>
       {quote.author === "" ? (
         ""
