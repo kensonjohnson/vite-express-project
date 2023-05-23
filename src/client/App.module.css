@@ -1,0 +1,12 @@
+.main-container {
+  width: 20rem;
+}
+
+.active {
+  height: 16rem;
+}
+
+.featurette-divider {
+  margin: 1rem 0;
+  color: var(--bs-dark);
+}
